@@ -27,7 +27,7 @@ int send_signal(char **bin, int pid)
                 kill(pid, SIGUSR1);
             else if (bin[i][k] == '0')
                 kill(pid, SIGUSR2);
-            usleep(5000);
+            usleep(2000);
             k++;
         }
         i++;
@@ -56,7 +56,7 @@ char *convert_to_bin(char letter)
         i--;
         k--;
     }
-    bin[k] = '\0';
+    bin[8] = '\0';
     return (bin);
 }
 
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
     char *bi_value; 
 
     bin = malloc(sizeof(char *) * ft_strlen(argv[2]) * 8 + 1);
-    if (bin == NULL || argc < 3 || argc > 3)
+    if (bin == NULL || argc != 3)
         return (1);
     if (argc == 3)
         pid = atoi(argv[1]);
@@ -78,13 +78,20 @@ int main(int argc, char *argv[])
     {
         bi_value = convert_to_bin(argv[2][i]);
         bin[i] = bi_value;
-        free(bi_value);
+        // free(bi_value);
         i++;
     }
     bi_value = convert_to_bin('\0');
     bin[i] = bi_value;
-    bin[i + 1] = '\0';
+    bin[i + 1] = NULL;
     send_signal(bin, pid);
-    free(bi_value);
+
+    i = 0;
+    while (bin[i] != NULL) {
+        free(bin[i]);
+        i++;
+    }
+    
+    // free(bi_value);
     return (free(bin), 0);
 }

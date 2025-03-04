@@ -58,6 +58,7 @@ void handle_string(char letter)
             j++;
         }
         free(string);
+        string = NULL;
     }
 }
 
@@ -80,6 +81,7 @@ void    handle_signal_SIGUSR1(int signal)
 
 int main(void)
 {   
+    string = NULL;
     printf("PID of server: %d\n", getpid());
 
     signal(SIGUSR1, handle_signal_SIGUSR1);
