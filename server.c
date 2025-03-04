@@ -3,38 +3,6 @@
 
 char *string;
 
-int ft_strlen(char *str)
-{
-    int i;
-
-    i = 0;
-    while(str[i] != '\0')
-    {
-        i++;
-    }
-    return(i);
-}
-
-char *ft_strjoin(char *s1, char letter)
-{
-	char	*temp;
-	int		i;
-	int		k;
-
-	temp = (char *)malloc((ft_strlen(s1) + 1 + 1) * sizeof(char));
-	if (temp == NULL)
-		return (NULL);
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		temp[i] = s1[i];
-		i++;
-	}
-	temp[i] = letter;
-    temp[i + 1] = '\0';
-	return (temp);
-}
-
 void handle_string(char letter)
 {
     int j;
@@ -71,13 +39,13 @@ void    handle_signal_SIGUSR1(int signal)
         letter |= (1 << k);
     }
     if (k == 7){
-        // write (1, &letter, 1);
         handle_string(letter);
         k = -1;
         letter = 0;
     }
     k++;
 }
+// PRINTF CHANGE!!
 
 int main(void)
 {   
@@ -89,8 +57,7 @@ int main(void)
 
     while (1)
     {
-        //if (something signaling end of the message)
-            //break;
+        
     }
     return (0);
 }

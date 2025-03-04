@@ -1,17 +1,6 @@
 #include "minitalk.h"
 
-int ft_strlen(char *str)
-{
-    int i;
-
-    i = 0;
-    while(str[i] != '\0')
-    {
-        i++;
-    }
-    return(i);
-}
-
+// use school pc, online over 1s per 100 words
 int send_signal(char **bin, int pid)
 {
     int i;
@@ -27,7 +16,7 @@ int send_signal(char **bin, int pid)
                 kill(pid, SIGUSR1);
             else if (bin[i][k] == '0')
                 kill(pid, SIGUSR2);
-            usleep(2000);
+            usleep(500);
             k++;
         }
         i++;
@@ -63,35 +52,28 @@ char *convert_to_bin(char letter)
 int main(int argc, char *argv[])
 {
     int i;
-    int k;
-    int pid;
     char **bin;
     char *bi_value; 
 
     bin = malloc(sizeof(char *) * ft_strlen(argv[2]) * 8 + 1);
     if (bin == NULL || argc != 3)
         return (1);
-    if (argc == 3)
-        pid = atoi(argv[1]);
     i = 0;
     while (argv[2][i] != '\0')
     {
         bi_value = convert_to_bin(argv[2][i]);
         bin[i] = bi_value;
-        // free(bi_value);
         i++;
     }
     bi_value = convert_to_bin('\0');
     bin[i] = bi_value;
     bin[i + 1] = NULL;
-    send_signal(bin, pid);
-
+    i = ft_atoi(argv[1]);
+    send_signal(bin, i);
     i = 0;
     while (bin[i] != NULL) {
         free(bin[i]);
         i++;
     }
-    
-    // free(bi_value);
     return (free(bin), 0);
 }
