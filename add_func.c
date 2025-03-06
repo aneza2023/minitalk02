@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add_func.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/06 11:30:19 by ahavrank          #+#    #+#             */
+/*   Updated: 2025/03/06 12:49:14 by ahavrank         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(str[i] != '\0')
-    {
-        i++;
-    }
-    return(i);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 
 int	ft_atoi(const char *nptr)
@@ -38,11 +50,10 @@ int	ft_atoi(const char *nptr)
 	return (result * sign);
 }
 
-char *ft_strjoin(char *s1, char letter)
+char	*ft_strjoin(char *s1, char letter)
 {
 	char	*temp;
 	int		i;
-	int		k;
 
 	temp = (char *)malloc((ft_strlen(s1) + 1 + 1) * sizeof(char));
 	if (temp == NULL)
@@ -54,7 +65,6 @@ char *ft_strjoin(char *s1, char letter)
 		i++;
 	}
 	temp[i] = letter;
-    temp[i + 1] = '\0';
+	temp[i + 1] = '\0';
 	return (temp);
 }
-
