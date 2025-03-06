@@ -6,11 +6,9 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:30:46 by ahavrank          #+#    #+#             */
-/*   Updated: 2025/03/06 14:02:41 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:46:55 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// use school pc, online over 1s per 100 words
 
 #include "minitalk.h"
 
@@ -29,7 +27,7 @@ int	send_signal(char **bin, int pid)
 				kill(pid, SIGUSR1);
 			else if (bin[i][k] == '0')
 				kill(pid, SIGUSR2);
-			usleep(10);
+			usleep(500);
 			k++;
 		}
 		i++;

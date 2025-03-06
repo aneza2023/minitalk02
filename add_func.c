@@ -6,7 +6,7 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:30:19 by ahavrank          #+#    #+#             */
-/*   Updated: 2025/03/06 12:49:14 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:55:40 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ char	*ft_strjoin(char *s1, char letter)
 	}
 	temp[i] = letter;
 	temp[i + 1] = '\0';
+	free(s1);
 	return (temp);
 }
