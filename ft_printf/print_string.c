@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   print_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/06 11:32:48 by ahavrank          #+#    #+#             */
-/*   Updated: 2025/03/08 18:58:49 by ahavrank         ###   ########.fr       */
+/*   Created: 2024/08/08 22:07:36 by anezkahavra       #+#    #+#             */
+/*   Updated: 2024/08/14 18:46:54 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "ft_printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <signal.h>
-# include <stdio.h>
-# include "ft_printf/ft_printf.h" 
+int	print_string(char *s)
+{
+	int	count;
 
-int		ft_atoi(const char *nptr);
-int		ft_strlen(char *str);
-char	*ft_strjoin(char *s1, char letter);
-
-#endif
+	count = 0;
+	if (s == NULL)
+	{
+		write (1, "(null)", 6);
+		count = 6;
+	}
+	while (s != NULL && s[count] != '\0')
+	{
+		write(1, &s[count], 1);
+		count++;
+	}
+	return (count);
+}
