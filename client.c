@@ -6,7 +6,7 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:30:46 by ahavrank          #+#    #+#             */
-/*   Updated: 2025/03/06 14:46:55 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/08 18:51:35 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ char	*convert_to_bin(char letter)
 	bin[8] = '\0';
 	return (bin);
 }
+
 int	free_bin(char **bin)
 {
 	int	i;

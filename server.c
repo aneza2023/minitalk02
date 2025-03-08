@@ -6,7 +6,7 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:31:03 by ahavrank          #+#    #+#             */
-/*   Updated: 2025/03/06 13:57:09 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/08 18:51:10 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,15 @@ void	handle_signal_sigusr1(int signal)
 	}
 	k++;
 }
-// PRINTF CHANGE!!
-//sleep maybe in while
+
 int	main(void)
-{   
+{
 	g_string = NULL;
 	ft_printf("PID of server: %d\n", getpid());
 	signal(SIGUSR1, handle_signal_sigusr1);
 	signal(SIGUSR2, handle_signal_sigusr1);
-
 	while (1)
-    {
+	{
 	}
 	return (0);
 }
